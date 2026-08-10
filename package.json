@@ -1,0 +1,66 @@
+{
+  "name": "geoproximity-map",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf node_modules",
+    "build": "tsup",
+    "watch": "tsup --watch",
+    "lint": "eslint --ext .ts,.tsx .",
+    "fix": "eslint --fix --ext .ts,.tsx . && prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "if [ -e .git ]; then git config core.hooksPath .hooks; fi",
+    "prepublishOnly": "npm run build && npm run test",
+    "test": "vitest run --coverage"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/",
+    "!/dist/**/__tests__/*"
+  ],
+  "dependencies": {
+    "maplibre-gl": "^4.7.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "overrides": {
+    "nwsapi": "2.2.23"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awslabs/geoproximity-map.git"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.0.0",
+    "@tsconfig/node24": "^24.0.4",
+    "@types/react": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "@vitest/coverage-v8": "^4.1.2",
+    "eslint": "^8.34.0",
+    "eslint-plugin-header": "^3.1.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jsdom": "^26.0.0",
+    "lint-staged": "^16.4.0",
+    "maplibre-gl": "^4.7.1",
+    "prettier": "^3.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsup": "^8.5.1",
+    "typescript": "~6.0.2",
+    "vitest": "^4.1.2"
+  }
+}

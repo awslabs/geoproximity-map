@@ -1,0 +1,7 @@
+/node_modules
+/build
+/dist
+/coverage
+/demo/node_modules
+/demo/dist
+.env

@@ -1,0 +1,21 @@
+.map-container {
+  flex-grow: 1;
+}
+
+.maplibregl-map {
+  aspect-ratio: 3 / 2;
+}
+
+.maplibregl-popup-content {
+  background: none;
+  box-shadow: none;
+}
+
+.popup-black {
+  color: #000;
+  font-size: 14;
+}
+
+.popup-white {
+  color: #fff;
+}

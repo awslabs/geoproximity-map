@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+#
+# Runs eslint + prettier on staged files via lint-staged. Wired up by the
+# package.json "prepare" script, which sets core.hooksPath to this directory.
+#
+# Bypass for a single commit: git commit --no-verify
+
+set -e
+
+npx lint-staged
+
+echo "Pre-commit complete"
