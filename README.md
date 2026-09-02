@@ -1,4 +1,4 @@
-# geoproximity-map
+# Geoproximity Map
 
 A React component that visualizes geoproximity routing regions on an interactive world map.
 
@@ -14,7 +14,7 @@ This component takes a list of endpoint locations (AWS regions, local zones, or 
 Install the package from npm:
 
 ```bash
-npm install geoproximity-map
+npm install @aws/geoproximity-map
 ```
 
 This package declares `react` as a peer dependency. If your package does not already include it, add it to your `package.json`:
@@ -92,7 +92,7 @@ Full API reference: [GetStyleDescriptor](https://docs.aws.amazon.com/location/la
 ### Basic: Two regions
 
 ```tsx
-import { GeoproximityMap } from "geoproximity-map";
+import { GeoproximityMap } from "@aws/geoproximity-map";
 
 const styleUrl = `https://maps.geo.us-east-1.amazonaws.com/v2/styles/Monochrome/descriptor?key=${process.env.LOCATION_API_KEY}`;
 
@@ -110,7 +110,7 @@ const styleUrl = `https://maps.geo.us-east-1.amazonaws.com/v2/styles/Monochrome/
 ### Mixed: Region + Coordinate
 
 ```tsx
-import { GeoproximityMap } from "geoproximity-map";
+import { GeoproximityMap } from "@aws/geoproximity-map";
 
 const styleUrl = `https://maps.geo.us-east-1.amazonaws.com/v2/styles/Monochrome/descriptor?key=${process.env.LOCATION_API_KEY}`;
 
@@ -128,7 +128,7 @@ const styleUrl = `https://maps.geo.us-east-1.amazonaws.com/v2/styles/Monochrome/
 ### Multiple endpoint types
 
 ```tsx
-import { GeoproximityMap } from "geoproximity-map";
+import { GeoproximityMap } from "@aws/geoproximity-map";
 
 const styleUrl = `https://maps.geo.us-east-1.amazonaws.com/v2/styles/Monochrome/descriptor?key=${process.env.LOCATION_API_KEY}&color-scheme=Light`;
 

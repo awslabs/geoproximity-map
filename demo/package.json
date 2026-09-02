@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "geoproximity-map": "file:..",
+    "@aws/geoproximity-map": "file:..",
     "@cloudscape-design/code-view": "^3.0.0",
     "@cloudscape-design/components": "^3.0.0",
     "@cloudscape-design/global-styles": "^1.0.0",

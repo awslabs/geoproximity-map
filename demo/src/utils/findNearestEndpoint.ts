@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type maplibregl from "maplibre-gl";
-import type { EndpointInput } from "geoproximity-map";
+import type { EndpointInput } from "@aws/geoproximity-map";
 import { resolveCoordinate } from "./resolveCoordinate";
 
 export interface NearestEndpoint {

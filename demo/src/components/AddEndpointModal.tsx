@@ -10,7 +10,7 @@ import Select from "@cloudscape-design/components/select";
 import Input from "@cloudscape-design/components/input";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import type { SelectProps } from "@cloudscape-design/components/select";
-import type { EndpointInput } from "geoproximity-map";
+import type { EndpointInput } from "@aws/geoproximity-map";
 import regionsData from "../data/regions.json";
 import localZonesData from "../data/local-zones.json";
 

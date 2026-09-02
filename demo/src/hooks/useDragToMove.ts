@@ -3,7 +3,7 @@
 
 import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
-import type { EndpointInput } from "geoproximity-map";
+import type { EndpointInput } from "@aws/geoproximity-map";
 
 /**
  * Places a draggable marker on each Coordinate endpoint while `enabled`, and

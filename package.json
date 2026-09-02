@@ -1,6 +1,8 @@
 {
-  "name": "geoproximity-map",
-  "version": "0.1.0",
+  "name": "@aws/geoproximity-map",
+  "version": "1.0.0",
+  "author": "Amazon Web Services",
+  "description": "A React component that visualizes geoproximity routing regions on an interactive world map.",
   "license": "Apache-2.0",
   "type": "module",
   "engines": {
@@ -42,6 +44,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/awslabs/geoproximity-map.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "@testing-library/react": "^16.0.0",
