@@ -17,8 +17,8 @@ import SpaceBetween from "@cloudscape-design/components/space-between";
 import Toggle from "@cloudscape-design/components/toggle";
 import typescriptHighlight from "@cloudscape-design/code-view/highlight/typescript";
 import "@cloudscape-design/global-styles/index.css";
-import { GeoproximityMap } from "geoproximity-map";
-import type { EndpointInput } from "geoproximity-map";
+import { GeoproximityMap } from "@aws/geoproximity-map";
+import type { EndpointInput } from "@aws/geoproximity-map";
 import { useDragToMove } from "./hooks/useDragToMove";
 import { useMapClick } from "./hooks/useMapClick";
 import { EndpointInfo } from "./components/EndpointInfo";
@@ -57,7 +57,7 @@ function generateCode(endpoints: EndpointInput[]): string {
       ? "      endpoints={[]}"
       : `      endpoints={[\n${endpoints.map(formatEndpoint).join("\n")}\n    ]}`;
   return [
-    'import { GeoproximityMap } from "geoproximity-map";',
+    'import { GeoproximityMap } from "@aws/geoproximity-map";',
     "",
     "// Replace with your Amazon Location Service style URL",
     "// See: https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html",

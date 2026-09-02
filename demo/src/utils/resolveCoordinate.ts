@@ -1,7 +1,7 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
-import type { EndpointInput } from "geoproximity-map";
+import type { EndpointInput } from "@aws/geoproximity-map";
 import regionsData from "../data/regions.json";
 import localZonesData from "../data/local-zones.json";
 

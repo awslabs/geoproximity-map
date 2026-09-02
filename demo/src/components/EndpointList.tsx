@@ -5,7 +5,7 @@ import Box from "@cloudscape-design/components/box";
 import Button from "@cloudscape-design/components/button";
 import Container from "@cloudscape-design/components/container";
 import SpaceBetween from "@cloudscape-design/components/space-between";
-import type { EndpointInput } from "geoproximity-map";
+import type { EndpointInput } from "@aws/geoproximity-map";
 import { TYPE_LABELS } from "../utils/endpointLabels";
 
 /** One card per endpoint: type on the first line, details on the second. */
