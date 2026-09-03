@@ -2,6 +2,9 @@
 
 A React component that visualizes geoproximity routing regions on an interactive world map.
 
+**[Live demo](https://awslabs.github.io/geoproximity-map/)**
+([source](demo/))
+
 ## Introduction
 
 This component takes a list of endpoint locations (AWS regions, local zones, or custom coordinates) with bias values and renders weighted geoproximity regions on a [MapLibre GL](https://maplibre.org/maplibre-gl-js/docs/) map. Each region is color-coded and sized based on the endpoint's bias.
@@ -144,6 +147,8 @@ const styleUrl = `https://maps.geo.us-east-1.amazonaws.com/v2/styles/Monochrome/
 
 ## Demo
 
+A hosted version is available at [awslabs.github.io/geoproximity-map](https://awslabs.github.io/geoproximity-map/).
+
 The `demo/` directory contains a runnable [Vite](https://vite.dev/) application that
 showcases the component with interactive editing built on top of it: adding
 endpoints via a modal or by clicking the map, dragging endpoints to reposition
@@ -152,34 +157,36 @@ demo (not the component) — the component itself stays a pure visualization too
 
 ### Running the demo
 
-1. Create an Amazon Location Service API key (see
-   [Prerequisite - Amazon Location Service API Key](#prerequisite---amazon-location-service-api-key)).
+By default the demo uses [MapLibre's keyless demo tiles](https://demotiles.maplibre.org/),
+so it runs with no API key or AWS account.
 
-2. From the `demo/` directory, install dependencies:
+1. From the `demo/` directory, install dependencies:
 
    ```bash
    cd demo
    npm install
    ```
 
-3. Copy the example env file and add your key:
-
-   ```bash
-   cp .env.example .env
-   # then edit .env and set VITE_AMAZON_LOCATION_KEY=<your-key>
-   ```
-
-   | Variable                   | Required | Default      | Description                       |
-   | -------------------------- | -------- | ------------ | --------------------------------- |
-   | `VITE_AMAZON_LOCATION_KEY` | Yes      | —            | Amazon Location Service API key   |
-   | `VITE_AWS_REGION`          | No       | `us-east-1`  | Region for the map style endpoint |
-   | `VITE_MAP_STYLE`           | No       | `Monochrome` | Base map style                    |
-
-4. Start the dev server:
+2. Start the dev server:
 
    ```bash
    npm run dev
    ```
+
+To render against Amazon Location Service instead (a full-detail basemap), create an
+API key (see [Prerequisite - Amazon Location Service API Key](#prerequisite---amazon-location-service-api-key)),
+then set it in `demo/.env` before starting the dev server:
+
+```bash
+cp .env.example .env
+# then edit .env and set VITE_AMAZON_LOCATION_KEY=<your-key>
+```
+
+| Variable                   | Required | Default      | Description                                             |
+| -------------------------- | -------- | ------------ | ------------------------------------------------------- |
+| `VITE_AMAZON_LOCATION_KEY` | No       | —            | Amazon Location Service API key. Unset uses demo tiles. |
+| `VITE_AWS_REGION`          | No       | `us-east-1`  | Region for the map style endpoint                       |
+| `VITE_MAP_STYLE`           | No       | `Monochrome` | Base map style                                          |
 
 > The demo reads its key from `demo/.env`, which is git-ignored. Never commit a
 > real API key.

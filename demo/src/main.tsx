@@ -27,17 +27,15 @@ import { AddEndpointModal } from "./components/AddEndpointModal";
 import { exportEndpoints } from "./utils/exportEndpoints";
 import "./demo.css";
 
+// Use Amazon Location Service when a key is set, otherwise fall back to
+// MapLibre's keyless demo tiles so the demo runs without any setup.
 const apiKey = import.meta.env.VITE_AMAZON_LOCATION_KEY;
 const region = import.meta.env.VITE_AWS_REGION ?? "us-east-1";
 const mapStyle = import.meta.env.VITE_MAP_STYLE ?? "Monochrome";
 
-if (!apiKey) {
-  throw new Error(
-    "Missing VITE_AMAZON_LOCATION_KEY. Create demo/.env with VITE_AMAZON_LOCATION_KEY=<your-key>.",
-  );
-}
-
-const styleUrl = `https://maps.geo.${region}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}&color-scheme=Light`;
+const styleUrl = apiKey
+  ? `https://maps.geo.${region}.amazonaws.com/v2/styles/${mapStyle}/descriptor?key=${apiKey}&color-scheme=Light`
+  : "https://demotiles.maplibre.org/style.json";
 
 /** Renders a single endpoint as a line inside the generated `endpoints` array. */
 function formatEndpoint(endpoint: EndpointInput): string {

@@ -5,6 +5,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
+  // Served from https://awslabs.github.io/geoproximity-map/ on GitHub Pages.
+  base: "/geoproximity-map/",
   plugins: [react()],
   // The component is linked via `file:..`, so dedupe these to a single copy —
   // otherwise React resolving to two copies triggers "Invalid hook call".
