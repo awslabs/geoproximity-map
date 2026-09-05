@@ -9,6 +9,8 @@ A React component that visualizes geoproximity routing regions on an interactive
 
 This component takes a list of endpoint locations (AWS regions, local zones, or custom coordinates) with bias values and renders weighted geoproximity regions on a [MapLibre GL](https://maplibre.org/maplibre-gl-js/docs/) map. Each region is color-coded and sized based on the endpoint's bias.
 
+It powers the geoproximity routing visualization in the Amazon Route 53 [Traffic Flow console](https://aws.amazon.com/route53/traffic-flow/). Route 53's [geoproximity routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) sends traffic to the nearest resource based on geographic location, and this component is used to render the preview map.
+
 ## Installation
 
 Install the package from npm:
@@ -244,6 +246,10 @@ Consumers who need a custom location should use the `Coordinate` type directly â
 ## Security
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+
+## Maintainers
+
+Built and maintained by the AWS Route 53 Console team.
 
 ## License
 
