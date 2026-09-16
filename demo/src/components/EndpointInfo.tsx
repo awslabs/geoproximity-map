@@ -5,7 +5,7 @@ import { useState } from "react";
 import Box from "@cloudscape-design/components/box";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import Slider from "@cloudscape-design/components/slider";
-import type { EndpointInput } from "geoproximity-map";
+import type { EndpointInput } from "@aws/geoproximity-map";
 import { TYPE_LABELS } from "../utils/endpointLabels";
 
 function Row({ label, value }: { label: string; value: string | number }) {

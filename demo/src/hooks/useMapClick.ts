@@ -3,7 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import maplibregl from "maplibre-gl";
-import type { EndpointInput } from "geoproximity-map";
+import type { EndpointInput } from "@aws/geoproximity-map";
 import { findNearestEndpoint } from "../utils/findNearestEndpoint";
 
 /**

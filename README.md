@@ -1,4 +1,8 @@
-# geoproximity-map
+# Geoproximity Map
+
+[![GitHub](https://img.shields.io/badge/github-awslabs/geoproximity--map-blue.svg?style=flat&logo=github)](https://github.com/awslabs/geoproximity-map)
+[![npm version](https://img.shields.io/npm/v/@aws/geoproximity-map.svg)](https://www.npmjs.com/package/@aws/geoproximity-map)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
 A React component that visualizes geoproximity routing regions on an interactive world map.
 
@@ -16,7 +20,7 @@ It powers the geoproximity routing visualization in the Amazon Route 53 [Traffic
 Install the package from npm:
 
 ```bash
-npm install geoproximity-map
+npm install @aws/geoproximity-map
 ```
 
 This package declares `react` as a peer dependency. If your package does not already include it, add it to your `package.json`:
@@ -94,7 +98,7 @@ Full API reference: [GetStyleDescriptor](https://docs.aws.amazon.com/location/la
 ### Basic: Two regions
 
 ```tsx
-import { GeoproximityMap } from "geoproximity-map";
+import { GeoproximityMap } from "@aws/geoproximity-map";
 
 const styleUrl = `https://maps.geo.us-east-1.amazonaws.com/v2/styles/Monochrome/descriptor?key=${process.env.LOCATION_API_KEY}`;
 
@@ -112,7 +116,7 @@ const styleUrl = `https://maps.geo.us-east-1.amazonaws.com/v2/styles/Monochrome/
 ### Mixed: Region + Coordinate
 
 ```tsx
-import { GeoproximityMap } from "geoproximity-map";
+import { GeoproximityMap } from "@aws/geoproximity-map";
 
 const styleUrl = `https://maps.geo.us-east-1.amazonaws.com/v2/styles/Monochrome/descriptor?key=${process.env.LOCATION_API_KEY}`;
 
@@ -130,7 +134,7 @@ const styleUrl = `https://maps.geo.us-east-1.amazonaws.com/v2/styles/Monochrome/
 ### Multiple endpoint types
 
 ```tsx
-import { GeoproximityMap } from "geoproximity-map";
+import { GeoproximityMap } from "@aws/geoproximity-map";
 
 const styleUrl = `https://maps.geo.us-east-1.amazonaws.com/v2/styles/Monochrome/descriptor?key=${process.env.LOCATION_API_KEY}&color-scheme=Light`;
 
