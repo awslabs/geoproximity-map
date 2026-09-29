@@ -33,5 +33,6 @@
   "ca-west-1": { "lat": 51.12, "lon": -114.01 },
   "ap-southeast-5": { "lat": 2.75, "lon": 101.71 },
   "ap-southeast-7": { "lat": 13.69, "lon": 100.75 },
-  "mx-central-1": { "lat": 20.62, "lon": -100.19 }
+  "mx-central-1": { "lat": 20.62, "lon": -100.19 },
+  "ap-southeast-6": { "lat": -37.01, "lon": 174.79 }
 }
