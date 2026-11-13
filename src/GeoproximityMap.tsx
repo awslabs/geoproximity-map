@@ -10,6 +10,7 @@ import "./GeoproximityMap.css";
 import { GeoproximityMapOverlay } from "./GeoproximityMapOverlay";
 import { processEndpoints } from "./utils/processEndpoints";
 import { validateStyleUrl } from "./utils/validateStyleUrl";
+import { ensureWorkerUrl } from "./utils/ensureWorkerUrl";
 
 interface GeoproximityMapInternalProps {
   data: GeoproximityMapData;
@@ -41,6 +42,7 @@ const GeoproximityMapInternal = ({
 
   useEffect(() => {
     if (!mapRef.current && mapContainerRef.current) {
+      ensureWorkerUrl();
       mapRef.current = new maplibregl.Map({
         container: mapContainerRef.current,
         style: styleUrl,

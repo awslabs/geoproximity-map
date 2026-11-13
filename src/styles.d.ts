@@ -4,3 +4,8 @@
 // Ambient declaration so `tsc` accepts side-effect style imports.
 // Actual CSS is resolved by the consuming application's bundler.
 declare module "*.css";
+
+declare module "*?raw" {
+  const content: string;
+  export default content;
+}
