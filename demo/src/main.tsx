@@ -4,9 +4,7 @@
 import { useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { createPortal } from "react-dom";
-import { setWorkerUrl } from "maplibre-gl";
 import type * as maplibregl from "maplibre-gl";
-import maplibreWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import Box from "@cloudscape-design/components/box";
 import Button from "@cloudscape-design/components/button";
 import CodeView from "@cloudscape-design/code-view/code-view";
@@ -28,9 +26,6 @@ import { EndpointList } from "./components/EndpointList";
 import { AddEndpointModal } from "./components/AddEndpointModal";
 import { exportEndpoints } from "./utils/exportEndpoints";
 import "./demo.css";
-
-// MapLibre 6 can't locate its worker once bundled, so point it at the one Vite emits.
-setWorkerUrl(maplibreWorkerUrl);
 
 // Use Amazon Location Service when a key is set, otherwise fall back to
 // MapLibre's keyless demo tiles so the demo runs without any setup.
