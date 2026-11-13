@@ -49,6 +49,11 @@ const GeoproximityMapInternal = ({
         maxZoom: 6,
         minZoom: 1,
         attributionControl: false,
+        // Amazon Location styles ask for a globe; the region overlay is drawn for a flat map.
+        transformStyle: (_previous, next) => ({
+          ...next,
+          projection: { type: "mercator" },
+        }),
       });
 
       mapRef.current.dragRotate.disable();
