@@ -12,21 +12,26 @@ import { processEndpoints } from "./utils/processEndpoints";
 import { validateStyleUrl } from "./utils/validateStyleUrl";
 import { ensureWorkerUrl } from "./utils/ensureWorkerUrl";
 
+export type GeoproximityMapProjection = "mercator" | "globe";
+
 interface GeoproximityMapInternalProps {
   data: GeoproximityMapData;
   styleUrl: string;
+  projection?: GeoproximityMapProjection;
   onMapReady?: (map: maplibregl.Map) => void;
 }
 
 interface GeoproximityMapProps {
   endpoints: EndpointInput[];
   styleUrl: string;
+  projection?: GeoproximityMapProjection;
   onMapReady?: (map: maplibregl.Map) => void;
 }
 
 const GeoproximityMapInternal = ({
   data,
   styleUrl,
+  projection,
   onMapReady,
 }: GeoproximityMapInternalProps) => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
@@ -51,6 +56,10 @@ const GeoproximityMapInternal = ({
         maxZoom: 6,
         minZoom: 1,
         attributionControl: false,
+        // Applied before the style renders, so the map never starts in the style's own projection.
+        transformStyle: projection
+          ? (_previous, next) => ({ ...next, projection: { type: projection } })
+          : undefined,
       });
 
       mapRef.current.dragRotate.disable();
@@ -75,7 +84,7 @@ const GeoproximityMapInternal = ({
         setIsMapLoaded(false);
       }
     };
-  }, [styleUrl]);
+  }, [styleUrl, projection]);
 
   // call resize after map initialization to ensure that it takes the parent container's dimensions
   useEffect(() => {
@@ -97,6 +106,7 @@ const GeoproximityMapInternal = ({
 export const GeoproximityMap = ({
   endpoints,
   styleUrl,
+  projection,
   onMapReady,
 }: GeoproximityMapProps) => {
   // Memoized so the overlay (keyed on `data`) only redraws when endpoints
@@ -109,6 +119,7 @@ export const GeoproximityMap = ({
     <GeoproximityMapInternal
       data={data}
       styleUrl={validatedUrl}
+      projection={projection}
       onMapReady={onMapReady}
     />
   );

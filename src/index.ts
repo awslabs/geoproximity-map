@@ -2,4 +2,5 @@
 // SPDX-License-Identifier: Apache-2.0
 
 export { GeoproximityMap } from "./GeoproximityMap";
+export type { GeoproximityMapProjection } from "./GeoproximityMap";
 export type { EndpointInput } from "./types";
