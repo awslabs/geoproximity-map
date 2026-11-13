@@ -13,7 +13,7 @@
     "@cloudscape-design/code-view": "^3.0.0",
     "@cloudscape-design/components": "^3.0.0",
     "@cloudscape-design/global-styles": "^1.0.0",
-    "maplibre-gl": "^4.7.1",
+    "maplibre-gl": "^6.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

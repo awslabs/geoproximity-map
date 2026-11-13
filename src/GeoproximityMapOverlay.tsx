@@ -3,7 +3,8 @@
 
 import { useEffect, useRef } from "react";
 import { GeoproximityMapData } from "./types";
-import maplibregl, { Offset, PopupOptions } from "maplibre-gl";
+import * as maplibregl from "maplibre-gl";
+import type { Offset, PopupOptions } from "maplibre-gl";
 
 import {
   computeGeoproximityRegionsForGrid,

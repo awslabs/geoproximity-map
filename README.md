@@ -33,6 +33,19 @@ This package declares `react` as a peer dependency. If your package does not alr
 }
 ```
 
+### Bundler setup for the MapLibre worker
+
+MapLibre GL 6 can't find its web worker once your app is bundled, and the map stays blank. Point it at the worker once, before the first map renders. With Vite:
+
+```ts
+import { setWorkerUrl } from "maplibre-gl";
+import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
+
+setWorkerUrl(workerUrl);
+```
+
+For other bundlers, see the [MapLibre v6 migration guide](https://www.maplibre.org/maplibre-gl-js/docs/guides/v5-to-v6-migration-guide/).
+
 ## Prerequisite - Amazon Location Service API Key
 
 1. Go to the [Amazon Location Service console](https://console.aws.amazon.com/location/home) and select **API keys** in the left navigation.

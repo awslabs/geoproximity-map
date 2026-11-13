@@ -1,7 +1,8 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
-import maplibregl, { LngLat } from "maplibre-gl";
+import * as maplibregl from "maplibre-gl";
+import { LngLat } from "maplibre-gl";
 
 import { getColorAtIndex } from "./getGeoproximityMapColors";
 

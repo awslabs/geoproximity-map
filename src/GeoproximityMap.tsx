@@ -3,7 +3,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { EndpointInput, GeoproximityMapData } from "./types";
-import maplibregl from "maplibre-gl";
+import * as maplibregl from "maplibre-gl";
 
 import "maplibre-gl/dist/maplibre-gl.css";
 import "./GeoproximityMap.css";
