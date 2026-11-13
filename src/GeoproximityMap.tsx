@@ -24,6 +24,7 @@ interface GeoproximityMapInternalProps {
 interface GeoproximityMapProps {
   endpoints: EndpointInput[];
   styleUrl: string;
+  /** Map projection, applied whatever the map style sets. @default "mercator" */
   projection?: GeoproximityMapProjection;
   onMapReady?: (map: maplibregl.Map) => void;
 }
