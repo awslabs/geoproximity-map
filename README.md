@@ -171,14 +171,21 @@ demo (not the component) — the component itself stays a pure visualization too
 By default the demo uses [MapLibre's keyless demo tiles](https://demotiles.maplibre.org/),
 so it runs with no API key or AWS account.
 
-1. From the `demo/` directory, install dependencies:
+1. Build the component from the repository root. The demo uses this local build through `file:..`, so rebuild after changing the component:
+
+   ```bash
+   npm install
+   npm run build
+   ```
+
+2. From the `demo/` directory, install dependencies:
 
    ```bash
    cd demo
    npm install
    ```
 
-2. Start the dev server:
+3. Start the dev server:
 
    ```bash
    npm run dev

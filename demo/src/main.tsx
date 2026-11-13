@@ -67,6 +67,7 @@ function generateCode(endpoints: EndpointInput[]): string {
     "  return (",
     "    <GeoproximityMap",
     "      styleUrl={styleUrl}",
+    '      projection="mercator"',
     endpointsBlock,
     "    />",
     "  );",
@@ -191,6 +192,7 @@ function App() {
             <div style={{ position: "relative" }}>
               <GeoproximityMap
                 styleUrl={styleUrl}
+                projection="mercator"
                 endpoints={endpoints}
                 onMapReady={setMap}
               />
