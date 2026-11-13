@@ -38,6 +38,12 @@ To send us a pull request, please:
 GitHub provides additional document on [forking a repository](https://help.github.com/articles/fork-a-repo/) and
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
+## Releasing
+
+Pull requests are squash-merged, so the PR title becomes the commit message on `main`. Write it as a [Conventional Commit](https://www.conventionalcommits.org/): the title decides the next version. `fix:` releases a patch, `feat:` a minor version and `feat!:` a major version. `chore:`, `ci:`, `docs:` and `test:` don't trigger a release.
+
+Maintainers release by running the [Release workflow](https://github.com/awslabs/geoproximity-map/actions/workflows/publish.yml) on `main`. It tags the version, creates the GitHub release and stages the package on npm, where a maintainer approves it. Don't edit `version` in `package.json`; the workflow sets it.
+
 ## Finding contributions to work on
 
 Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any 'help wanted' issues is a great place to start.
