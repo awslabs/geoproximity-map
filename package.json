@@ -1,6 +1,6 @@
 {
   "name": "@aws/geoproximity-map",
-  "version": "2.0.0",
+  "version": "0.0.0-semantic-release",
   "author": "Amazon Web Services",
   "description": "A React component that visualizes geoproximity routing regions on an interactive world map.",
   "license": "Apache-2.0",

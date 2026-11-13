@@ -1,35 +1,30 @@
-name: Publish to npm
+name: Release
 
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency: release
+
 jobs:
-  publish:
+  release:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       id-token: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
 
       - uses: actions/setup-node@v4
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
-
-      - name: Check the release tag matches package.json
-        env:
-          TAG: ${{ github.event.release.tag_name }}
-        run: |
-          version="v$(node -p 'require("./package.json").version')"
-          if [ "$TAG" != "$version" ]; then
-            echo "::error::Release tag $TAG does not match package.json version $version"
-            exit 1
-          fi
 
       - run: npm ci
 
@@ -41,5 +36,12 @@ jobs:
 
       - run: npm run build
 
-      # Trusted publishing (OIDC), so no token secret. The version stays staged until a maintainer approves it on npmjs.com.
-      - run: npm stage publish
+      # Picks the version from commit messages, tags it, stages it on npm (a maintainer approves it on npmjs.com) and creates the GitHub release.
+      - run: >-
+          npx --yes
+          -p semantic-release@25.0.9
+          -p @semantic-release/exec@7.1.0
+          -p conventional-changelog-conventionalcommits@9.3.1
+          semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
