@@ -31,6 +31,7 @@ vi.mock("maplibre-gl", () => ({
       setLngLat: vi.fn().mockReturnThis(),
       setText: vi.fn().mockReturnThis(),
       addTo: vi.fn().mockReturnThis(),
+      remove: vi.fn(),
     };
   }),
 }));
