@@ -60,7 +60,7 @@ The component bundles MapLibre's web worker and loads it from a `blob:` URL, so 
 | ------------ | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `endpoints`  | `EndpointInput[]`               | List of geoproximity endpoints to render on the map. Invalid entries are dropped with a console warning. Duplicate entries (same coordinates) are also dropped.                                                                                                                                                            |
 | `styleUrl`   | `string`                        | Amazon Location Service style descriptor URL. Throws `TypeError` if malformed. See [Style URL Reference](#style-url-reference) below.                                                                                                                                                                                      |
-| `projection` | `"mercator" \| "globe"`         | Optional. Overrides the projection set by the map style. Omit it to use the style's own projection (MapLibre defaults to `"mercator"` when the style sets none).                                                                                                                                                           |
+| `projection` | `"mercator" \| "globe"`         | Optional. Defaults to `"mercator"`, whatever projection the map style sets. Pass `"globe"` for a 3D globe.                                                                                                                                                                                                                 |
 | `onMapReady` | `(map: maplibregl.Map) => void` | Optional. Called once with the underlying MapLibre map after it loads. A read-only escape hatch for callers that need the map instance (e.g. to translate clicks to coordinates); the component still renders only `endpoints`. The callback may be an inline function — the map is not rebuilt when its identity changes. |
 
 ### `EndpointInput`
@@ -171,14 +171,21 @@ demo (not the component) — the component itself stays a pure visualization too
 By default the demo uses [MapLibre's keyless demo tiles](https://demotiles.maplibre.org/),
 so it runs with no API key or AWS account.
 
-1. From the `demo/` directory, install dependencies:
+1. Build the component from the repository root. The demo uses this local build through `file:..`, so rebuild after changing the component:
+
+   ```bash
+   npm install
+   npm run build
+   ```
+
+2. From the `demo/` directory, install dependencies:
 
    ```bash
    cd demo
    npm install
    ```
 
-2. Start the dev server:
+3. Start the dev server:
 
    ```bash
    npm run dev

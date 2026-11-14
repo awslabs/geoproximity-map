@@ -17,13 +17,14 @@ export type GeoproximityMapProjection = "mercator" | "globe";
 interface GeoproximityMapInternalProps {
   data: GeoproximityMapData;
   styleUrl: string;
-  projection?: GeoproximityMapProjection;
+  projection: GeoproximityMapProjection;
   onMapReady?: (map: maplibregl.Map) => void;
 }
 
 interface GeoproximityMapProps {
   endpoints: EndpointInput[];
   styleUrl: string;
+  /** Map projection, applied whatever the map style sets. @default "mercator" */
   projection?: GeoproximityMapProjection;
   onMapReady?: (map: maplibregl.Map) => void;
 }
@@ -57,9 +58,10 @@ const GeoproximityMapInternal = ({
         minZoom: 1,
         attributionControl: false,
         // Applied before the style renders, so the map never starts in the style's own projection.
-        transformStyle: projection
-          ? (_previous, next) => ({ ...next, projection: { type: projection } })
-          : undefined,
+        transformStyle: (_previous, next) => ({
+          ...next,
+          projection: { type: projection },
+        }),
       });
 
       mapRef.current.dragRotate.disable();
@@ -106,7 +108,7 @@ const GeoproximityMapInternal = ({
 export const GeoproximityMap = ({
   endpoints,
   styleUrl,
-  projection,
+  projection = "mercator",
   onMapReady,
 }: GeoproximityMapProps) => {
   // Memoized so the overlay (keyed on `data`) only redraws when endpoints
